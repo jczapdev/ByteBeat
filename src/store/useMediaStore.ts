@@ -75,7 +75,15 @@ export const useMediaStore = create<MediaStore>((set, get) => ({
             });
         } catch (error) {
             console.error('Scan error:', error);
-            set({ isScanning: false, scanError: 'Failed to scan files' });
+            let errorMessage = 'Failed to scan files';
+
+            if (error instanceof Error) {
+                errorMessage = error.message;
+            } else if (typeof error === 'string') {
+                errorMessage = error;
+            }
+
+            set({ isScanning: false, scanError: errorMessage });
         }
     },
 
