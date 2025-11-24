@@ -38,7 +38,7 @@ const PlayerScreen = () => {
                         url: file.path,
                         title: file.name,
                         artist: 'Unknown Artist',
-                        artwork: require('../assets/placeholder_art.png'), // You might need a placeholder image
+                        artwork: require('../assets/placeholder_art.svg'), // You might need a placeholder image
                     });
                     await TrackPlayer.setRate(settings.playbackSpeed);
                     await TrackPlayer.play();
